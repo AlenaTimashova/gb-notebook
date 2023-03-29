@@ -1,0 +1,7 @@
+мар. 29, 2023 5:55:03 PM notebook.view.UserView run
+INFO: New note is createdid: 1
+name: John,
+surname: Lennon,
+phone number: 55663
+мар. 29, 2023 6:00:13 PM notebook.view.UserView run
+INFO: Note is updated, id: 1

@@ -1,13 +1,17 @@
 package notebook.view;
 
 import notebook.controller.UserController;
+import notebook.logger.Log;
 import notebook.model.User;
 import notebook.util.Commands;
 
+import java.util.logging.Logger;
 import java.util.Scanner;
+import java.util.logging.Level;
 
 public class UserView {
     private final UserController userController;
+    private final static Logger log = Log.log(UserView.class.getName());
 
     public UserView(UserController userController) {
         this.userController = userController;
@@ -24,6 +28,7 @@ public class UserView {
                 case CREATE:
                     User u = createUser();
                     userController.saveUser(u);
+                    log.log(Level.INFO, "New note is created: " + u);
                     break;
                 case READ:
                     String id = prompt("Enter user ID: ");
@@ -31,6 +36,7 @@ public class UserView {
                         User user = userController.readUser(Long.parseLong(id));
                         System.out.println(user);
                         System.out.println();
+                        log.log(Level.INFO, "Note is read: " + user);
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
@@ -38,6 +44,7 @@ public class UserView {
                 case UPDATE:
                     String userId = prompt("Enter user ID: ");
                     userController.updateUser(userId, createUser());
+                    log.log(Level.INFO, "Note is updated, id: " + userId);
                     break;
             }
         }
