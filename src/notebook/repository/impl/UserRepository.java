@@ -69,8 +69,16 @@ public class UserRepository implements GBRepository<User, Long> {
     }
 
     @Override
-    public boolean delete(Long id) {
-        return false;
+    public boolean delete(Long userId) {
+        List<User> users = findAll();
+        User editUser = users.stream()
+                .filter(u -> u.getId()
+                        .equals(userId))
+                .findFirst().orElseThrow(() -> new RuntimeException("User not found"));
+        users.remove(editUser);
+        System.out.println("The note is deleted");
+        write(users);
+        return true;
     }
 
     private void write(List<User> users) {

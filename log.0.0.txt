@@ -5,3 +5,7 @@ surname: Lennon,
 phone number: 55663
 мар. 29, 2023 6:00:13 PM notebook.view.UserView run
 INFO: Note is updated, id: 1
+мар. 29, 2023 6:41:08 PM notebook.view.UserView run
+INFO: Note is deleted, id: 1
+мар. 29, 2023 6:42:11 PM notebook.view.UserView run
+INFO: Note is deleted, id: 1

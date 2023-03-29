@@ -46,6 +46,10 @@ public class UserView {
                     userController.updateUser(userId, createUser());
                     log.log(Level.INFO, "Note is updated, id: " + userId);
                     break;
+                case DELETE: 
+                    String idUser = prompt("Enter user ID: ");
+                    userController.deleteUser(idUser);
+                    log.log(Level.INFO, "Note is deleted, id: " + idUser);
             }
         }
     }
